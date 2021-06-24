@@ -170,9 +170,9 @@ class Education extends React.Component {
               <div style={{marginLeft:"1.5rem "}} >
                     {edus.map(function(edu, index){
                       return(<>
-                        <div className="card border-dark mb-3 col-md-6" key={index} onDoubleClick={() => self.startEdit(edu)} style={{display:"flex" ,width:"25rem" }}  >
-                          <div className="card-header">{edu.year}</div>
-                          <div className="card-body text-primary">
+                        <div className="card border-dark mb-3 col-md-6 " key={index} onDoubleClick={() => self.startEdit(edu)} style={{display:"flex" ,width:"25rem" }}  >
+                          <div className="card-header bg-success text-white">{edu.year}</div>
+                          <div className="card-body text-dark">
                             <h5 className="card-title">{edu.title}</h5>
                             <p className="card-text">{edu.college}</p>
                           </div>

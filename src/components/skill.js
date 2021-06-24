@@ -142,13 +142,13 @@ class Skill extends React.Component {
 
         <h1>My Skills</h1>
   
-                            <div>
+             <div>
                   {this.props.user!==null && <button   style={{margin:"0 auto", margin:"5px"}} onClick={self.handleMakeChanges} className="btn btn-sm btn-outline-danger">{(this.state.makeChanges)?'X' : 'Add'}</button>
                            } </div>
-          <div id="skill-container">
+          <div id="container">
              { this.state.makeChanges
              &&
-              <div  id="form-wrapper" className="backdrop" onClick={this.handleClick} >
+              <div  id="form-wrapper" className="backdrop" onClick={this.handleClick}  >
                  <form onSubmit={this.handleSubmit}  id="form">
                  <button   style={{margin:"1rem"}} onClick={self.handleMakeChanges} className="btn btn-sm btn-outline-danger">{(this.state.makeChanges)?'X' : 'Add'}</button>
       <div className="flex-wrapper">
@@ -167,7 +167,7 @@ class Skill extends React.Component {
                       return(
                           <span  key={index} onDoubleClick={() => self.startEdit(skill)} >
                             
-                          <button  style={{color:"black", borderRadius:"20px" , margin:"1rem"}}   className="btn btn-md btn-outline-success">
+                          <button  style={{color:"black", borderRadius:"20px" , margin:"1rem"}}   className="btn btn-md btn-info">
                                     {skill.name}
                           </button>
                         </span> 

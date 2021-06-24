@@ -171,7 +171,7 @@ class Experience extends React.Component {
                 </form>
               </div>}
 
-              <div  id="list-wrapper" style={{maxWidth:"65%" , margin:"0 auto"}}>
+              <div  id="list-wrapper " style={{maxWidth:"65%" , margin:"0 auto"}} >
                     {exps.map(function(exp, index){
                       return(
                           <div key={index} onDoubleClick={() => self.startEdit(exp)}  className="exp-wrapper flex-wrapper">

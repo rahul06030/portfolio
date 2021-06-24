@@ -33,8 +33,16 @@ class Profile extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this)
       this.getCookie = this.getCookie.bind(this)
       this.startEdit = this.startEdit.bind(this)
+      this.handleClick = this.handleClick.bind(this)
     };
-
+    handleClick = (e) => {
+      if (e.target.classList.contains('backdrop')) {
+        this.setState({
+          makeChanges:false,
+          editing:false,
+        });
+      }
+    }
   getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -166,7 +174,7 @@ class Profile extends React.Component {
               }
              {  this.state.makeChanges 
                      && 
-             <div id="form-wrapper"  >
+             <div id="form-wrapper " className="backdrop" onClick={this.handleClick}>
 
                  <form onSubmit={this.handleSubmit}  id="form">
                     <div className="flex-wrapper">
@@ -190,7 +198,7 @@ class Profile extends React.Component {
 
               </div>}
 
-              <div  id="list-wrapper " className="profile">
+              <div  id="list-wrapper " className="profile bg-dark">
                {
                 profile.id!=null 
                       && 

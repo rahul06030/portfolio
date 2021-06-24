@@ -12,7 +12,7 @@ class Course extends React.Component {
             id:null,
             title:'',
             certi_link:'',
-            completed_on:"",
+            date:"",
             institute:"",
         },
         editing:false,
@@ -123,7 +123,7 @@ class Course extends React.Component {
             id:null,
             title:'',
             certi_link:'',
-            completed_on:"",
+            date:"",
             institute:"",
         }
         })
@@ -167,7 +167,7 @@ class Course extends React.Component {
                       <div >
                         <input onChange={this.handleChange} className="form-control" id="title" value={this.state.activeItem.title} type="text" name="title" placeholder=" title.." />
                         <input onChange={this.handleChange} className="form-control" id="institute" value={this.state.activeItem.institute} type="text" name="institute" placeholder=" institute.." />
-                        <input onChange={this.handleChange} className="form-control" id="completed_on" value={this.state.activeItem.completed_on} type="date" name="completed_on" placeholder="completed_on.." />
+                        <input onChange={this.handleChange} className="form-control" id="date" value={this.state.activeItem.date} type="date" name="date" placeholder="date.." />
                         <input onChange={this.handleChange} className="form-control" id="certi_link" value={this.state.activeItem.certi_link} type="url" name="certi_link" placeholder="certi_link.." />
                          </div>
 
@@ -183,9 +183,9 @@ class Course extends React.Component {
               <div style={{marginLeft:"1.5rem "}}>
                     {courses.map(function(course, index){
                       return(<>
-                        <div className="card border-dark mb-3 col-md-6" key={index} onDoubleClick={() => self.startEdit(course)} style={{display:"flex" ,width:"25rem" }}  >
-                          <div className="card-header">{course.completed_on}</div>
-                          <div className="card-body text-primary">
+                        <div className="card border-dark mb-3 col-md-6 " key={index} onDoubleClick={() => self.startEdit(course)} style={{display:"flex" ,width:"25rem" }}  >
+                          <div className="card-header bg-success text-white">{course.date}</div>
+                          <div className="card-body text-dark">
                             <h5 className="card-title">{course.title}</h5>
                             <p className="card-text">{course.institute}</p>
                             <a href={course.certi_link}   className="card-link" >Click to verify </a>

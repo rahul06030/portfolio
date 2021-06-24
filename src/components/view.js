@@ -9,36 +9,37 @@ export class View extends Component {
             expList:[],
             progress:0,
             activeItem:props.item,
-            editing:false,
-            makeChanges:false,
-    
+     
           }
 
           this.handleClick = this.handleClick.bind(this)
         };
         handleClick = (e) => {
-          if (e.target.classList.contains('backdrop')) {
-            this.setState({
-              makeChanges:false,
-              editing:false,
-            });
+          if (e.target.classList.contains('view')) {
+            this.props.handle(e)
           }
         }
 
     render() {
         var exp=this.props.item
         return (
-            <div className="view" onClick={()=>this.props.handle(this.props.item)}>
-                <div className="card  "  key={exp.id} >
+          <> { this.state.activeItem &&
+            <div className="  view" onClick={(e)=>this.handleClick(e)}>
+                <div className="card  bg-dark text-white"  key={exp.id} >
                     <img className="card-img-top images" src={exp.image_url} alt={exp.title}/>
                     <div className="card-body">
                         <h5 className="card-title">{exp.title} </h5>
-                        <p className="card-text">{exp.description} <br/> {exp.tools}</p>
-                        { exp.github && <a className="fa" href={exp.github}><FaGithubSquare/></a>}
+                        <strong>Description</strong><p className="card-text">{exp.description} </p>
+                        <strong>Tools Used</strong> <p>{exp.tools} </p>
+                        <p>{ exp.github && <a className="fa" href={exp.github}><FaGithubSquare/></a>}
+
+                        { exp.hosted && <a className="card-link " href={exp.hosted} >Click to visit site</a>}
+                        </p>
                     </div>
                 </div>
-            </div>
-        )
+            </div> }
+            </>
+         )
     }
 }
 

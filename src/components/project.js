@@ -1,8 +1,7 @@
 import React from 'react';
 import '../App.css';
 import './index.css';
-import { FaGithubSquare } from 'react-icons/fa';
-import firebase from '../firebase'
+import firebase from './firebase'
 import View from "./view"
 class Project extends React.Component {
   constructor(props){
@@ -19,6 +18,8 @@ class Project extends React.Component {
             image_url:'',
             tools:'',
             github:'',
+            date:'',
+            hosted:'',
           
 
         },
@@ -209,7 +210,9 @@ getDownloadUrl(file){
             image_url:'',
             tools:'',
             github:'',
-  
+            date:'',
+            hosted:'',
+          
         },
         file:null,
 
@@ -261,9 +264,12 @@ getDownloadUrl(file){
   
                         <div >
                         <input onChange={this.handleChange} className="form-control" id="title" value={this.state.activeItem.title} type="text" name="title" placeholder=" title.." />
-                        <input onChange={this.handleChange} className="form-control" id="description" value={this.state.activeItem.description} type="text" name="description" placeholder=" description.." />
+                        <textarea onChange={this.handleChange} className="form-control" id="description" value={this.state.activeItem.description} type="text" name="description" placeholder=" description.." />
                         <input onChange={this.handleChange} className="form-control" id="tools" value={this.state.activeItem.tools} type="text" name="tools" placeholder="tools.." />
                         <input onChange={this.handleChange} className="form-control" id="github" value={this.state.activeItem.github} type="url" name="github" placeholder="github.." />
+                        <input onChange={this.handleChange} className="form-control" id="hosted" value={this.state.activeItem.hosted} type="url" name="hosted" placeholder="hosted.." />
+                        <input onChange={this.handleChange} className="form-control" id="date" value={this.state.activeItem.date} type="date" name="date" placeholder="date.." />          
+              
                         <div> 
                             <input id="image"type='file' onChange={this.handleImage } /> 
                         </div>
@@ -285,10 +291,10 @@ getDownloadUrl(file){
                 </form>
               </div>}
 
-              <div  id="list-wrapper" clalssName="row projects" >
+              <div  id=" " clalssName="row projects" >
               {exps.map(function(exp, index){
                     return(
-                      <div className="card  col-sm-6 project"  key={index} onClick={() => self.handleView(exp)} onDoubleClick={() => self.startEdit(exp)}  style={{width:" 18rem"}}>
+                      <div className="card  col-sm-6 project bg-dark text-white text-center"  key={index} onClick={() => self.handleView(exp)} onDoubleClick={() => self.startEdit(exp)}  style={{width:" 18rem"}}>
                       <img className="card-img-top images" src={exp.image_url} alt={exp.title}/>
                       <div className="card-body">
                         <h5 className="card-title">{exp.title} </h5>
