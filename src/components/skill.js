@@ -52,7 +52,7 @@ class Skill extends React.Component {
   }
 
   fetchSkills(){
-    fetch('http://127.0.0.1:8000/api/skill-list/')
+    fetch('http://rahul06030.pythonanywhere.com//api/skill-list/')
     .then(response => response.json())
     .then(data =>
       this.setState({
@@ -88,10 +88,10 @@ class Skill extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     var csrftoken = this.getCookie('csrftoken')
-    var url = `http://127.0.0.1:8000/api/skill-create/`
+    var url = `http://rahul06030.pythonanywhere.com//api/skill-create/`
 
     if(this.state.editing === true){
-      url = `http://127.0.0.1:8000/api/skill-update/${ this.state.activeItem.id}/`
+      url = `http://rahul06030.pythonanywhere.com//api/skill-update/${ this.state.activeItem.id}/`
       this.setState({
         makeChanges:false,
         editing:false
@@ -143,7 +143,7 @@ class Skill extends React.Component {
         <h1>My Skills</h1>
   
              <div>
-                  {this.props.user!==null && <button   style={{margin:"0 auto", margin:"5px"}} onClick={self.handleMakeChanges} className="btn btn-sm btn-outline-danger">{(this.state.makeChanges)?'X' : 'Add'}</button>
+                  {this.props.user!==null && <button   style={{margin:"0 auto",  }} onClick={self.handleMakeChanges} className="btn btn-sm btn-outline-danger">{(this.state.makeChanges)?'X' : 'Add'}</button>
                            } </div>
           <div id="container">
              { this.state.makeChanges

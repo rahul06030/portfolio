@@ -104,13 +104,14 @@ padding: 1rem;
 }
 .view div:nth-child(1) {
   width: 30rem;
-  height: 30rem;
+  /* height: 30rem; */
   margin: 0 auto;
   padding: 0.5rem;
 }
 
 .login{
-  margin: 0 auto;
+  margin: 0.5rem auto;
+   
  }
 
  

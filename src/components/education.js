@@ -54,7 +54,7 @@ class Education extends React.Component {
   }
 
   fetchEdus(){
-    fetch('http://127.0.0.1:8000/api/education-list/')
+    fetch('http://rahul06030.pythonanywhere.com//api/education-list/')
     .then(response => response.json())
     .then(data =>
       this.setState({
@@ -91,10 +91,10 @@ class Education extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     var csrftoken = this.getCookie('csrftoken')
-    var url = `http://127.0.0.1:8000/api/education-create/`
+    var url = `http://rahul06030.pythonanywhere.com//api/education-create/`
 
     if(this.state.editing === true){
-      url = `http://127.0.0.1:8000/api/education-update/${ this.state.activeItem.id}/`
+      url = `http://rahul06030.pythonanywhere.com//api/education-update/${ this.state.activeItem.id}/`
       this.setState({
         makeChanges:false,
         editing:false
@@ -170,8 +170,8 @@ class Education extends React.Component {
               <div style={{marginLeft:"1.5rem "}} >
                     {edus.map(function(edu, index){
                       return(<>
-                        <div className="card border-dark mb-3 col-md-6 " key={index} onDoubleClick={() => self.startEdit(edu)} style={{display:"flex" ,width:"25rem" }}  >
-                          <div className="card-header bg-success text-white">{edu.year}</div>
+                        <div className="border border-dark mb-3 col-md-6 " key={index} onDoubleClick={() => self.startEdit(edu)} style={{display:"flex" ,width:"25rem" }}  >
+                          <div className="card-header bg-success text-white "   >{edu.year}</div>
                           <div className="card-body text-dark">
                             <h5 className="card-title">{edu.title}</h5>
                             <p className="card-text">{edu.college}</p>

@@ -53,7 +53,7 @@ class Experience extends React.Component {
   }
 
   fetchExps(){
-    fetch('http://127.0.0.1:8000/api/experience-list/')
+    fetch('http://rahul06030.pythonanywhere.com//api/experience-list/')
     .then(response => response.json())
     .then(data =>
       this.setState({
@@ -90,10 +90,10 @@ class Experience extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     var csrftoken = this.getCookie('csrftoken')
-    var url = `http://127.0.0.1:8000/api/experience-create/`
+    var url = `http://rahul06030.pythonanywhere.com//api/experience-create/`
 
     if(this.state.editing === true){
-      url = `http://127.0.0.1:8000/api/experience-update/${ this.state.activeItem.id}/`
+      url = `http://rahul06030.pythonanywhere.com//api/experience-update/${ this.state.activeItem.id}/`
       this.setState({
         makeChanges:false,
         editing:false

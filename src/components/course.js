@@ -56,7 +56,7 @@ class Course extends React.Component {
   }
 
   fetchCourses(){
-    fetch('http://127.0.0.1:8000/api/course-list/')
+    fetch('http://rahul06030.pythonanywhere.com//api/course-list/')
     .then(response => response.json())
     .then(data =>
       this.setState({
@@ -96,10 +96,10 @@ class Course extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     var csrftoken = this.getCookie('csrftoken')
-    var url = `http://127.0.0.1:8000/api/course-create/`
+    var url = `http://rahul06030.pythonanywhere.com//api/course-create/`
 
     if(this.state.editing === true){
-      url = `http://127.0.0.1:8000/api/course-update/${ this.state.activeItem.id}/`
+      url = `http://rahul06030.pythonanywhere.com//api/course-update/${ this.state.activeItem.id}/`
       this.setState({
         makeChanges:false,
         editing:false
@@ -183,12 +183,12 @@ class Course extends React.Component {
               <div style={{marginLeft:"1.5rem "}}>
                     {courses.map(function(course, index){
                       return(<>
-                        <div className="card border-dark mb-3 col-md-6 " key={index} onDoubleClick={() => self.startEdit(course)} style={{display:"flex" ,width:"25rem" }}  >
-                          <div className="card-header bg-success text-white">{course.date}</div>
+                        <div className="border border-dark mb-3 col-md-6 " key={index} onDoubleClick={() => self.startEdit(course)} style={{display:"flex" ,width:"25rem" }}  >
+                          <div className="card-header bg-success text-white"  >{course.date}</div>
                           <div className="card-body text-dark">
                             <h5 className="card-title">{course.title}</h5>
                             <p className="card-text">{course.institute}</p>
-                            <a href={course.certi_link}   className="card-link" >Click to verify </a>
+                            <a href={course.certi_link}  target="_blank"  className="card-link" >Click to verify </a>
                           </div>
                         </div>
 

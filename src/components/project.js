@@ -84,7 +84,7 @@ getCookie(name) {
   }
 
   fetchExps(){
-    fetch('http://127.0.0.1:8000/api/project-list/')
+    fetch('http://rahul06030.pythonanywhere.com//api/project-list/')
     .then(response => response.json())
     .then(data =>
       this.setState({
@@ -133,7 +133,6 @@ handleImage(e){
 
 getDownloadUrl(file){
       
-        console.log(file.name)
         const storageRef=firebase.storage().ref(`project/${file.name}`)
         let uploadTask=storageRef.put(file)
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
@@ -152,6 +151,9 @@ getDownloadUrl(file){
                   case firebase.storage.TaskState.RUNNING: // or 'running'
                     // console.log('Uploading');
                     break;
+                  default:{
+                    
+                  }
                 }
               }, 
               (error) => {
@@ -184,10 +186,10 @@ getDownloadUrl(file){
     e.preventDefault()
 
     var csrftoken = this.getCookie('csrftoken')
-    var url = `http://127.0.0.1:8000/api/project-create/`
+    var url = `http://rahul06030.pythonanywhere.com//api/project-create/`
 
     if(this.state.editing === true){
-      url = `http://127.0.0.1:8000/api/project-update/${ this.state.activeItem.id}/`
+      url = `http://rahul06030.pythonanywhere.com//api/project-update/${ this.state.activeItem.id}/`
       this.setState({
         makeChanges:false,
         editing:false
@@ -279,7 +281,7 @@ getDownloadUrl(file){
                         </div>
 
                          <div style={{flex: 1}}>
-                            <h5 style={{display:`${ (this.state.progress>0 &&this.state.progress<100)?'block':'none'}`}}> Uploading image{~~this.state.progress}% done</h5>
+                            <h5 style={{display:`${ (this.state.progress>0 &&this.state.progress<100)?'block':'none'}`}}> Uploading image {~~this.state.progress}% done</h5>
 
                             {  
                               (this.state.progress===100) && <>
@@ -291,7 +293,7 @@ getDownloadUrl(file){
                 </form>
               </div>}
 
-              <div  id=" " clalssName="row projects" >
+              <div  id=" " className="row projects" >
               {exps.map(function(exp, index){
                     return(
                       <div className="card  col-sm-6 project bg-dark text-white text-center"  key={index} onClick={() => self.handleView(exp)} onDoubleClick={() => self.startEdit(exp)}  style={{width:" 18rem"}}>

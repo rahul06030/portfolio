@@ -64,7 +64,7 @@ class Profile extends React.Component {
   }
 
   fetchProfiles(){
-    fetch('http://127.0.0.1:8000/api/profile-view/')
+    fetch('http://rahul06030.pythonanywhere.com//api/profile-view/')
     .then(response => response.json())
     .then(data =>
       this.setState({
@@ -102,10 +102,10 @@ class Profile extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     var csrftoken = this.getCookie('csrftoken')
-    var url = `http://127.0.0.1:8000/api/profile-create/`
+    var url = `http://rahul06030.pythonanywhere.com//api/profile-create/`
 
     if(this.state.editing === true){
-      url = `http://127.0.0.1:8000/api/profile-update/${ this.state.activeItem.id}/`
+      url = `http://rahul06030.pythonanywhere.com//api/profile-update/${ this.state.activeItem.id}/`
       this.setState({
         makeChanges:false,
         editing:false
